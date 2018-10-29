@@ -1,0 +1,10 @@
+<STEPPER>
+        <ID>1</ID>
+        <SN>423127</SN>
+        <REMOTE>0</REMOTE>
+        <HUBPORT>-1</HUBPORT>
+        <VEL>100000</VEL>
+        <ACC>100000</ACC>
+        <MIN>-1000</MIN>
+        <MAX>1000</MAX>
+</STEPPER>
