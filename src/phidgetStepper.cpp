@@ -5,8 +5,10 @@ string positionAsString;
 
 
 //--------------------------------------------------------------
-void motor::setup(string _filename, bool verbose)
+void motor::setup(bool verbose)
 {
+
+	/*
 	ofxXmlSettings XML;
 	XML.loadFile(_filename);
 
@@ -20,7 +22,7 @@ void motor::setup(string _filename, bool verbose)
 
 	minPosition = XML.getValue("STEPPER:MIN", -100);
 	maxPosition = XML.getValue("STEPPER:MAX", 100);
-
+	*/
 	if(verbose)
 	{
 		cout << "setting motor : " 
@@ -34,10 +36,12 @@ void motor::setup(string _filename, bool verbose)
 			<< "\nmaxPosition : " << maxPosition
 			<< endl; 
 	}
-
+	
 	setupStepper();
 	setVelocity(velocityFromConfigFile);
 	setAcceleration(accelerationFromConfigFile);
+
+
 
 }
 
@@ -56,7 +60,7 @@ void motor::setupStepper()
 
 	PhidgetStepper_create(&ch);
 
-	if(isRemote)
+	if(isRemote == 1)
 	{
 		Phidget_setIsRemote((PhidgetHandle)ch, 1);		
 		PhidgetNet_enableServerDiscovery(PHIDGETSERVER_DEVICEREMOTE);	
@@ -133,11 +137,13 @@ void motor::setAcceleration(double _acc)
 ofParameterGroup motor::setupGui()
 {
 	ofParameterGroup pg;
+	pg.setName(name);
 	
 	pg.add(position.set("position", 0, minPosition, maxPosition));
 	pg.add(velocity.set("velocity", velocityFromConfigFile, minVelocity+1, maxVelocity-1));
 	pg.add(acceleration.set("acceleration", accelerationFromConfigFile, minAccel+1, maxAccel-1));
 
+	//pg.add(fromjson);
 	return pg;
 }
 

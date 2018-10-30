@@ -31,9 +31,11 @@ public:
     }
 
 
-    int id;
+    int     id;
+    string  name ;
+    int     vitrineId;
 
-    void setup(string _configFile, bool verbose);
+    void setup(bool verbose);
     void goToPosition(float _pos);
 
     ofParameterGroup setupGui();
@@ -48,9 +50,6 @@ public:
 
     string getPositionAsString();
 
-
-    private:
-
     void setSerialNumber(int _sn);
     void setHubPort(int _port);
     void setupStepper();
@@ -62,7 +61,7 @@ public:
 
         //motor properties to be read from XML
             int serialNumber;
-            bool isRemote;
+            int isRemote;
             int hubPort;
             double velocityFromConfigFile;
             double accelerationFromConfigFile;

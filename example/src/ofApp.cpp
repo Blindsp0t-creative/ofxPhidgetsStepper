@@ -3,33 +3,30 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-    gui.setup("Phidgets");
-    
-    myMotor.setup("motor1.xml", true);
-    gui.add(myMotor.setupGui());
-    
+    stepperManager.setup("MotorsNEW.json");
+    stepperManager.setupGui();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    myMotor.goToPosition(myMotor.position);
-    myMotor.setVelocity(myMotor.velocity);
-    myMotor.setAcceleration(myMotor.acceleration);
+    stepperManager.motors[0].goToPosition(stepperManager.motors[0].position);
+    stepperManager.motors[0].setVelocity(stepperManager.motors[0].velocity);
+    stepperManager.motors[0].setAcceleration(stepperManager.motors[0].acceleration);
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    ofDrawBitmapString(myMotor.getPositionAsString(), 100,100);
-    gui.draw();
+    ofDrawBitmapString(stepperManager.motors[0].getPositionAsString(), ofGetWidth()-100,100);
+    stepperManager.guiMotors.draw();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
-    myMotor.goToPosition(150000);
+    stepperManager.motors[0].goToPosition(500);
 }
 
 //--------------------------------------------------------------

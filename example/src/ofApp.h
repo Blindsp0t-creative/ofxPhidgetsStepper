@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
-#include "phidgetStepper.h"
+#include "phidgetStepperManager.h"
 
 class ofApp : public ofBaseApp{
 	public:
@@ -22,8 +22,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		motor myMotor;
+		phidgetStepperManager stepperManager;
 
 		//gui
-		ofxPanel gui;
+		//ofxPanel gui;
 };
