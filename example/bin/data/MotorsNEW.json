@@ -1,0 +1,29 @@
+{
+  "Motors": [
+    {
+      "NAME": "Mot1T",
+      "ID": 1,
+      "SN": 423127,
+      "REMOTE": 0,
+      "HUBPORT": -1,
+      "VEL": 100000,
+      "ACC": 100000,
+      "MIN": -1000,
+      "MAX": 1000,
+      "VITRINE": 1
+    },
+
+    {
+      "NAME": "Mot2T",
+      "ID": 2,
+      "SN": 42555,
+      "REMOTE": 0,
+      "HUBPORT": -1,
+      "VEL": 100000,
+      "ACC": 100000,
+      "MIN": -1000,
+      "MAX": 1000,
+      "VITRINE": 1
+    }
+  ]
+}
