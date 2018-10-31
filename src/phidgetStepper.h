@@ -19,17 +19,9 @@ void CCONV onPositionChangeHandler(PhidgetStepperHandle ph, void *ctx, double po
 
 
 class motor
-{
-    
+{  
     
 public:
-    //SINGLETON
-    static motor& getInstance()
-    {
-        static motor instance;
-        return instance;
-    }
-
 
     int     id;
     string  name ;
@@ -57,7 +49,7 @@ public:
 
         //phidgets ojects
             PhidgetStepperHandle ch = NULL;
-	        PhidgetReturnCode prc; 
+	    PhidgetReturnCode prc; 
 
         //motor properties to be read from XML
             int serialNumber;
